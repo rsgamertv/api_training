@@ -1,7 +1,9 @@
 import 'package:api_training/core/routes/routes.dart';
 import 'package:api_training/core/style/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:sizer/sizer.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
       return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
-        routerConfig: appRouter.config(),
+        routerConfig: appRouter.config(
+          navigatorObservers: () => [
+            TalkerRouteObserver(GetIt.I<Talker>())]),
       );
       },
     );

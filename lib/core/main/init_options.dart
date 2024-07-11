@@ -1,4 +1,7 @@
 import 'package:api_training/core/main/globals.dart';
+import 'package:api_training/main/model/currencies.dart';
+import 'package:api_training/main/repository/abstract_currencies_repo.dart';
+import 'package:api_training/main/repository/currencies_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
@@ -16,4 +19,8 @@ void initTalker() {
           printStateFullData: true,
           printChanges: true,
           printEventFullData: true));
+}
+void initSingleTons(){
+  GetIt.I.registerLazySingleton<AbstractCurrenciesRepo>(() => CurrenciesRepo());
+  GetIt.I.registerLazySingleton<Currencies>(() => const Currencies());
 }

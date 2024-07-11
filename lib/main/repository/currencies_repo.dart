@@ -6,7 +6,7 @@ class CurrenciesRepo extends AbstractCurrenciesRepo{
   @override
   Future<Currencies> getAllCurrencies() async {
     try{
-      final response = await dio.get('fsym=EUR&tsyms=USD');
+      final response = await dio.get('fsym=USD&tsyms=USD,JPY,EUR,RUB');
       final responseData = response.data as Map<String,dynamic>;
       final currencies = Currencies.fromJson(responseData);
       return currencies;
