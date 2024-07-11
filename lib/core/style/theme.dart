@@ -20,17 +20,20 @@ ThemeData lightTheme = ThemeData(
       fontSize: 14,
       fontWeight: FontWeight.w500
     ),
-    displayLarge: GoogleFonts.roboto(
+    displayLarge: GoogleFonts.inter(
       color: white,
-      fontSize: 27
+      fontSize: 30,
+      fontWeight: FontWeight.w600
     ),
-    displayMedium: GoogleFonts.roboto(
+    displayMedium: GoogleFonts.inter(
       color: white,
-      fontSize: 20
+      fontSize: 20,
+      fontWeight: FontWeight.w600
     ),
-    displaySmall: GoogleFonts.roboto(
+    displaySmall: GoogleFonts.inter(
       color: white,
-      fontSize: 14
+      fontSize: 14,
+      fontWeight: FontWeight.w600
     ),
     labelLarge: GoogleFonts.roboto(
       color: primary,
@@ -69,15 +72,18 @@ ThemeData darkTheme = ThemeData(
     ),
     displayLarge: GoogleFonts.roboto(
       color: black,
-      fontSize: 27
+      fontSize: 27,
+      fontWeight: FontWeight.w700
     ),
     displayMedium: GoogleFonts.roboto(
       color: black,
-      fontSize: 20
+      fontSize: 20,
+      fontWeight: FontWeight.w500
     ),
     displaySmall: GoogleFonts.roboto(
       color: white,
-      fontSize: 14
+      fontSize: 14,
+      fontWeight: FontWeight.w500
     ),
     labelLarge: GoogleFonts.roboto(
       color: primary,
