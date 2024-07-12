@@ -7,6 +7,12 @@ class AboutUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('About Us',style: theme.textTheme.displayLarge,),
+      ),
+      body: SizedBox(width: double.infinity,height: double.infinity,child: Image.asset('assets/about_us.png',fit: BoxFit.fill,),),
+    );
   }
 }

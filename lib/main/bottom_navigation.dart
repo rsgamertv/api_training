@@ -24,7 +24,7 @@ class BottomNavigationScreen extends StatelessWidget {
             bottomNavigationBar: GNav(backgroundColor: primary,activeColor: white,selectedIndex: tabsRouter.activeIndex,tabs: const [
             GButton(icon: CupertinoIcons.home,iconSize: 30,text: ' Home',textSize: 25),
             GButton(icon: CupertinoIcons.chat_bubble,iconSize: 30,text: ' Chat',textSize: 25),
-            GButton(icon: CupertinoIcons.profile_circled,iconSize: 30,text: ' Profile',textSize: 25)],onTabChange: (value) => openPage(value, tabsRouter)),
+            GButton(icon: CupertinoIcons.person_crop_circle,iconSize: 30,text: ' About Us',textSize: 25)],onTabChange: (value) => openPage(value, tabsRouter)),
           );
         }
         
