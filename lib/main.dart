@@ -8,6 +8,7 @@ void main() async {
   initSingleTons();
   initTalker();
   currencies = await currenciesRepos.getAllCurrencies();
+  talker.log(currencies);
   runApp(const MyApp());
 }
 

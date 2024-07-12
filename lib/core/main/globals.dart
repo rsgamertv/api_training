@@ -7,7 +7,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 final talker = TalkerFlutter.init();
 BaseOptions options = BaseOptions(
-  baseUrl: 'https://min-api.cryptocompare.com/data/price?',
+  baseUrl: 'https://min-api.cryptocompare.com/data',
   receiveDataWhenStatusError: true,
   connectTimeout: const Duration(seconds: 60),
   receiveTimeout: const Duration(seconds: 60)
