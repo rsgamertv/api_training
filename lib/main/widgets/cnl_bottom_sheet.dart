@@ -28,9 +28,10 @@ class CnlBottomSheet extends StatelessWidget {
               SizedBox(height: 1.h,),
               Text('Description',style: theme.textTheme.titleLarge),
               Text(currentCurrencies.body!,style: theme.textTheme.titleMedium,),
-              Text(currentCurrencies.downvotes!),
-              Container(height: 5.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.tags!,style: theme.textTheme.displayMedium,)),)
-          
+              SizedBox(height: 1.h,),
+              Container(height: 5.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.source!,style: theme.textTheme.displayMedium))),
+              SizedBox(height: 1.h),
+              Container(height: 10.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.tags!,style: theme.textTheme.displayMedium,textAlign: TextAlign.center,)))
             ],
           ),
         ),

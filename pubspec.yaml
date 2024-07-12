@@ -30,6 +30,7 @@ dependencies:
   dio: ^5.5.0+1
   flutter_native_splash: ^2.4.1
   rive: ^0.13.9
+  google_nav_bar: ^5.0.6
 
 flutter_native_splash:
     android: true
