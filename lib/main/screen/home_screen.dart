@@ -1,4 +1,7 @@
+import 'package:api_training/core/main/globals.dart';
+import 'package:api_training/widgets/loading_widget.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -15,11 +18,36 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        padding: EdgeInsets.only(left: 5.w,right: 5.w,top: 20.h),
+        padding: EdgeInsets.only(left: 5.w,right: 5.w),
         child: ListView.builder(
-          itemCount: 3,
+          itemCount: currencies.data!.length,
           itemBuilder: (BuildContext context, int index) {
-            return ;
+            final currentcurrencies = currencies.data![index];
+            return SizedBox(
+              height: 30.w,
+              width: double.infinity,
+              child: CachedNetworkImage(imageUrl: currentcurrencies.imageurl!,
+              placeholder: (context, url) {
+              return const loadingWidget();
+              },
+              imageBuilder: (context, imageProvider) {
+                return Card(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 25.h,
+                        width: 30.w,
+                        decoration: BoxDecoration(image: DecorationImage(image: imageProvider),borderRadius: BorderRadius.circular(30)),
+                      )
+                    ],
+                  ),
+                );
+              },
+              errorWidget: (context, url, error) {
+                return const Center(child: Text('error'),);
+              },
+              ),
+            );
           },
         ),
       )
