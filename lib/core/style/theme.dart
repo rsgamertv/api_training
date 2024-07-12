@@ -5,6 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme(brightness: Brightness.light, primary: white, onPrimary: primary, secondary: gray, onSecondary: black, error: red, onError: red, surface: white, onSurface: primary),
   scaffoldBackgroundColor: white,
+  cardTheme: CardTheme(
+    color: primary,
+    shape:OutlineInputBorder(borderRadius: BorderRadius.circular(30),borderSide: BorderSide.none)
+  ),
   appBarTheme: const AppBarTheme(
     color: primary,
     elevation: 10,

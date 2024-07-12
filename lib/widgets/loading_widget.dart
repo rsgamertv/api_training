@@ -1,3 +1,4 @@
+import 'package:api_training/core/style/colors.dart';
 import 'package:flutter/material.dart';
 
 class loadingWidget extends StatelessWidget {
@@ -7,9 +8,10 @@ class loadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: CircularProgressIndicator(
-        color: Colors.green,
+        backgroundColor: Theme.of(context).dialogBackgroundColor,
+        color: primary,
       ),
     );
   }
