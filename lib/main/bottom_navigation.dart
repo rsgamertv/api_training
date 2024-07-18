@@ -14,7 +14,7 @@ class BottomNavigationScreen extends StatelessWidget {
     return AutoTabsRouter(
         routes: const [
           HomeRoute(),
-          ChatRoute(),
+          MapRoute(),
           AboutUsRoute()
         ],
         builder:(context, child) {
@@ -23,7 +23,7 @@ class BottomNavigationScreen extends StatelessWidget {
             body: child,
             bottomNavigationBar: GNav(backgroundColor: primary,activeColor: white,selectedIndex: tabsRouter.activeIndex,tabs: const [
             GButton(icon: CupertinoIcons.home,iconSize: 30,text: ' Home',textSize: 25),
-            GButton(icon: CupertinoIcons.chat_bubble,iconSize: 30,text: ' Chat',textSize: 25),
+            GButton(icon: CupertinoIcons.map,iconSize: 30,text: ' Map',textSize: 25),
             GButton(icon: CupertinoIcons.person_crop_circle,iconSize: 30,text: ' About Us',textSize: 25)],onTabChange: (value) => openPage(value, tabsRouter)),
           );
         }

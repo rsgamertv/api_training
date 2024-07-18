@@ -8,7 +8,7 @@ class AppRouter extends $AppRouter {
  List<AutoRoute> get routes => [
   AutoRoute(page: BottomNavigationRoute.page,children: [
     AutoRoute(page: HomeRoute.page),
-    AutoRoute(page: ChatRoute.page),
+    AutoRoute(page: MapRoute.page),
     AutoRoute(page: AboutUsRoute.page)
   ],path: '/')
  ];

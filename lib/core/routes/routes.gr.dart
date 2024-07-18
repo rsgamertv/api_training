@@ -10,8 +10,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:api_training/main/bottom_navigation.dart' as _i2;
 import 'package:api_training/main/screen/about_us_screen.dart' as _i1;
-import 'package:api_training/main/screen/chat_screen.dart' as _i3;
-import 'package:api_training/main/screen/home_screen.dart' as _i4;
+import 'package:api_training/main/screen/home_screen.dart' as _i3;
+import 'package:api_training/main/screen/map_screen.dart' as _i4;
 import 'package:auto_route/auto_route.dart' as _i5;
 
 abstract class $AppRouter extends _i5.RootStackRouter {
@@ -31,16 +31,16 @@ abstract class $AppRouter extends _i5.RootStackRouter {
         child: const _i2.BottomNavigationScreen(),
       );
     },
-    ChatRoute.name: (routeData) {
-      return _i5.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i3.ChatScreen(),
-      );
-    },
     HomeRoute.name: (routeData) {
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.HomeScreen(),
+        child: const _i3.HomeScreen(),
+      );
+    },
+    MapRoute.name: (routeData) {
+      return _i5.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i4.MapScreen(),
       );
     },
   };
@@ -75,21 +75,7 @@ class BottomNavigationRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.ChatScreen]
-class ChatRoute extends _i5.PageRouteInfo<void> {
-  const ChatRoute({List<_i5.PageRouteInfo>? children})
-      : super(
-          ChatRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ChatRoute';
-
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i4.HomeScreen]
+/// [_i3.HomeScreen]
 class HomeRoute extends _i5.PageRouteInfo<void> {
   const HomeRoute({List<_i5.PageRouteInfo>? children})
       : super(
@@ -98,6 +84,20 @@ class HomeRoute extends _i5.PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i4.MapScreen]
+class MapRoute extends _i5.PageRouteInfo<void> {
+  const MapRoute({List<_i5.PageRouteInfo>? children})
+      : super(
+          MapRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MapRoute';
 
   static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
 }
