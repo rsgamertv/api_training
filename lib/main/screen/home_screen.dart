@@ -4,7 +4,6 @@ import 'package:api_training/main/bloc/home_bloc/home_bloc.dart';
 import 'package:api_training/main/widgets/cnl_bottom_sheet.dart';
 import 'package:api_training/widgets/failure_widget.dart';
 import 'package:api_training/widgets/loading_widget.dart';
-import 'package:api_training/widgets/show_loading_circle.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +12,27 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sizer/sizer.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    final homeBloc = HomeBloc();
+    homeBloc.add(HomeEvent());
+  }
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         if(state is HomeLoading){
-          showLoadingCircle(context);
+          return const LoadingWidget();
         }
         if(state is HomeLoaded){
         return Scaffold(
@@ -132,7 +143,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ));}
             if(state is HomeFailure){
-              return FailureWidget();
+              return const FailureWidget();
             }
             else{
               return Container();
