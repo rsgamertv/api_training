@@ -86,7 +86,7 @@ Map<String, dynamic> _$$SourceInfoImplToJson(_$SourceInfoImpl instance) =>
     };
 
 _$RateLimitImpl _$$RateLimitImplFromJson(Map<String, dynamic> json) =>
-    _$RateLimitImpl();
+    const _$RateLimitImpl();
 
 Map<String, dynamic> _$$RateLimitImplToJson(_$RateLimitImpl instance) =>
     <String, dynamic>{};

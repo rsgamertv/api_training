@@ -15,7 +15,7 @@ class MapScreen extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.only(left: 5.w,right: 5.w,top: 20.h),
-        child: Column(
+        child: const Column(
           children: [
             
           ],

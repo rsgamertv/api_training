@@ -1,8 +1,8 @@
 import 'package:api_training/core/style/colors.dart';
 import 'package:flutter/material.dart';
 
-class loadingWidget extends StatelessWidget {
-  const loadingWidget({
+class LoadingWidget extends StatelessWidget {
+  const LoadingWidget({
     super.key,
   });
 
