@@ -1,4 +1,3 @@
-import 'package:api_training/main/model/currencies.dart';
 import 'package:api_training/main/repository/abstract_currencies_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';

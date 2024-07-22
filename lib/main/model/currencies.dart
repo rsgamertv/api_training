@@ -1,7 +1,4 @@
-import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hive/hive.dart';
-import 'dart:convert';
 
 part 'currencies.freezed.dart';
 part 'currencies.g.dart';

@@ -1,5 +1,4 @@
 import 'package:api_training/core/main/globals.dart';
-import 'package:api_training/main/model/currencies.dart';
 import 'package:api_training/main/repository/abstract_currencies_repo.dart';
 import 'package:api_training/main/repository/currencies_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
