@@ -31,7 +31,7 @@ class BottomNavigationScreen extends StatelessWidget {
               body: child,
               bottomNavigationBar: GNav(
                   backgroundColor: primary,
-                  activeColor: white,
+                  activeColor: black,
                   selectedIndex: tabsRouter.activeIndex,
                   tabs: const [
                     GButton(
