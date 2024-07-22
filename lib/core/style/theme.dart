@@ -64,7 +64,17 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
-  colorScheme: const ColorScheme(brightness: Brightness.dark, primary: black, onPrimary: primary, secondary: gray, onSecondary: black, error: red, onError: red, surface: black, onSurface: primary),  textTheme:  TextTheme(
+  colorScheme: const ColorScheme(brightness: Brightness.dark, primary: black, onPrimary: primary, secondary: gray, onSecondary: black, error: red, onError: red, surface: black, onSurface: primary), 
+  cardTheme: CardTheme(
+    color: primary,
+    shape:OutlineInputBorder(borderRadius: BorderRadius.circular(30),borderSide: BorderSide.none)
+  ),
+  appBarTheme: const AppBarTheme(
+    color: primary,
+    elevation: 10,
+    surfaceTintColor: primary
+  ), 
+  textTheme:  TextTheme(
     titleLarge: GoogleFonts.roboto(
     color: white,
     fontSize: 27,
@@ -91,7 +101,7 @@ ThemeData darkTheme = ThemeData(
       fontWeight: FontWeight.w500
     ),
     displaySmall: GoogleFonts.roboto(
-      color: white,
+      color: black,
       fontSize: 14,
       fontWeight: FontWeight.w500
     ),

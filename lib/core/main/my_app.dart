@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           final appRouter = AppRouter();
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            theme: lightTheme,
+            theme: darkTheme,
             routerConfig: appRouter.config(
                 navigatorObservers: () =>
                     [TalkerRouteObserver(GetIt.I<Talker>())]),
