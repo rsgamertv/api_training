@@ -18,20 +18,20 @@ class CnlBottomSheet extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CachedNetworkImage(imageUrl: currentCurrencies.imageurl!,
+              CachedNetworkImage(imageUrl: currentCurrencies.imageurl,
               imageBuilder: (context, imageProvider) {
                 return Container(height: 25.h,width: double.infinity,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),image: DecorationImage(image: imageProvider,fit: BoxFit.cover)),);
               },),
               SizedBox(height: 1.h),
               Text('Title',style: theme.textTheme.titleLarge,),
-              Text(currentCurrencies.title!,style: theme.textTheme.titleMedium),
+              Text(currentCurrencies.title,style: theme.textTheme.titleMedium),
               SizedBox(height: 1.h,),
               Text('Description',style: theme.textTheme.titleLarge),
-              Text(currentCurrencies.body!,style: theme.textTheme.titleMedium,),
+              Text(currentCurrencies.body,style: theme.textTheme.titleMedium,),
               SizedBox(height: 1.h,),
-              Container(height: 5.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.source!,style: theme.textTheme.displayMedium))),
+              Container(height: 5.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.source,style: theme.textTheme.displayMedium))),
               SizedBox(height: 1.h),
-              Container(height: 10.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.tags!,style: theme.textTheme.displayMedium,textAlign: TextAlign.center,)))
+              Container(height: 10.h,width: 100.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: primary),child: Center(child: Text(currentCurrencies.tags,style: theme.textTheme.displayMedium,textAlign: TextAlign.center,)))
             ],
           ),
         ),

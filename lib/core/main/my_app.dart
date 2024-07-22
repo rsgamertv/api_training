@@ -1,12 +1,10 @@
 import 'package:api_training/core/routes/routes.dart';
 import 'package:api_training/core/style/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:sizer/sizer.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-import '../../main/bloc/home_bloc/home_bloc.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,12 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => HomeBloc(),)
-      ],
-      child: Sizer(
+    return Sizer(
         builder: (context, orientation, deviceType) {
           final appRouter = AppRouter();
           return MaterialApp.router(
@@ -30,7 +23,6 @@ class MyApp extends StatelessWidget {
                     [TalkerRouteObserver(GetIt.I<Talker>())]),
           );
         },
-      ),
-    );
+      );
   }
 }

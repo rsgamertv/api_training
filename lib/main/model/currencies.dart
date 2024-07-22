@@ -1,4 +1,7 @@
+import 'package:meta/meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
+import 'dart:convert';
 
 part 'currencies.freezed.dart';
 part 'currencies.g.dart';
@@ -7,17 +10,17 @@ part 'currencies.g.dart';
 class Currencies with _$Currencies {
     const factory Currencies({
         @JsonKey(name: "Type")
-        int? type,
+        required int type,
         @JsonKey(name: "Message")
-        String? message,
+        required String message,
         @JsonKey(name: "Promoted")
-        List<dynamic>? promoted,
+        required List<dynamic> promoted,
         @JsonKey(name: "Data")
-        List<Datum>? data,
+        required List<Datum> data,
         @JsonKey(name: "RateLimit")
-        RateLimit? rateLimit,
+        required RateLimit rateLimit,
         @JsonKey(name: "HasWarning")
-        bool? hasWarning,
+        required bool hasWarning,
     }) = _Currencies;
 
     factory Currencies.fromJson(Map<String, dynamic> json) => _$CurrenciesFromJson(json);
@@ -27,33 +30,33 @@ class Currencies with _$Currencies {
 class Datum with _$Datum {
     const factory Datum({
         @JsonKey(name: "id")
-        String? id,
+        required String id,
         @JsonKey(name: "guid")
-        String? guid,
+        required String guid,
         @JsonKey(name: "published_on")
-        int? publishedOn,
+        required int publishedOn,
         @JsonKey(name: "imageurl")
-        String? imageurl,
+        required String imageurl,
         @JsonKey(name: "title")
-        String? title,
+        required String title,
         @JsonKey(name: "url")
-        String? url,
+        required String url,
         @JsonKey(name: "body")
-        String? body,
+        required String body,
         @JsonKey(name: "tags")
-        String? tags,
+        required String tags,
         @JsonKey(name: "lang")
-        Lang? lang,
+        required Lang lang,
         @JsonKey(name: "upvotes")
-        String? upvotes,
+        required String upvotes,
         @JsonKey(name: "downvotes")
-        String? downvotes,
+        required String downvotes,
         @JsonKey(name: "categories")
-        String? categories,
+        required String categories,
         @JsonKey(name: "source_info")
-        SourceInfo? sourceInfo,
+        required SourceInfo sourceInfo,
         @JsonKey(name: "source")
-        String? source,
+        required String source,
     }) = _Datum;
 
     factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
@@ -72,11 +75,11 @@ final langValues = EnumValues({
 class SourceInfo with _$SourceInfo {
     const factory SourceInfo({
         @JsonKey(name: "name")
-        String? name,
+        required String name,
         @JsonKey(name: "img")
-        String? img,
+        required String img,
         @JsonKey(name: "lang")
-        Lang? lang,
+        required Lang lang,
     }) = _SourceInfo;
 
     factory SourceInfo.fromJson(Map<String, dynamic> json) => _$SourceInfoFromJson(json);

@@ -4,15 +4,15 @@ import 'package:api_training/main/repository/abstract_currencies_repo.dart';
 
 class CurrenciesRepo extends AbstractCurrenciesRepo{
   @override
-  Future<Currencies> getAllCurrencies() async {
+  Future<List<Datum>> getAllCurrencies() async {
     try{
       final response = await dio.get('/v2/news/?lang=EN',);
       final responseData = response.data as Map<String,dynamic>;
       final currencies = Currencies.fromJson(responseData);
-      return currencies;
+      return currencies.data;
     }catch(e){
       talker.log(e);
-      return const Currencies();
+      return [];
     }
   }
 

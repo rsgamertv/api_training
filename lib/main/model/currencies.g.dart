@@ -8,16 +8,14 @@ part of 'currencies.dart';
 
 _$CurrenciesImpl _$$CurrenciesImplFromJson(Map<String, dynamic> json) =>
     _$CurrenciesImpl(
-      type: (json['Type'] as num?)?.toInt(),
-      message: json['Message'] as String?,
-      promoted: json['Promoted'] as List<dynamic>?,
-      data: (json['Data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+      type: (json['Type'] as num).toInt(),
+      message: json['Message'] as String,
+      promoted: json['Promoted'] as List<dynamic>,
+      data: (json['Data'] as List<dynamic>)
+          .map((e) => Datum.fromJson(e as Map<String, dynamic>))
           .toList(),
-      rateLimit: json['RateLimit'] == null
-          ? null
-          : RateLimit.fromJson(json['RateLimit'] as Map<String, dynamic>),
-      hasWarning: json['HasWarning'] as bool?,
+      rateLimit: RateLimit.fromJson(json['RateLimit'] as Map<String, dynamic>),
+      hasWarning: json['HasWarning'] as bool,
     );
 
 Map<String, dynamic> _$$CurrenciesImplToJson(_$CurrenciesImpl instance) =>
@@ -31,22 +29,21 @@ Map<String, dynamic> _$$CurrenciesImplToJson(_$CurrenciesImpl instance) =>
     };
 
 _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
-      id: json['id'] as String?,
-      guid: json['guid'] as String?,
-      publishedOn: (json['published_on'] as num?)?.toInt(),
-      imageurl: json['imageurl'] as String?,
-      title: json['title'] as String?,
-      url: json['url'] as String?,
-      body: json['body'] as String?,
-      tags: json['tags'] as String?,
-      lang: $enumDecodeNullable(_$LangEnumMap, json['lang']),
-      upvotes: json['upvotes'] as String?,
-      downvotes: json['downvotes'] as String?,
-      categories: json['categories'] as String?,
-      sourceInfo: json['source_info'] == null
-          ? null
-          : SourceInfo.fromJson(json['source_info'] as Map<String, dynamic>),
-      source: json['source'] as String?,
+      id: json['id'] as String,
+      guid: json['guid'] as String,
+      publishedOn: (json['published_on'] as num).toInt(),
+      imageurl: json['imageurl'] as String,
+      title: json['title'] as String,
+      url: json['url'] as String,
+      body: json['body'] as String,
+      tags: json['tags'] as String,
+      lang: $enumDecode(_$LangEnumMap, json['lang']),
+      upvotes: json['upvotes'] as String,
+      downvotes: json['downvotes'] as String,
+      categories: json['categories'] as String,
+      sourceInfo:
+          SourceInfo.fromJson(json['source_info'] as Map<String, dynamic>),
+      source: json['source'] as String,
     );
 
 Map<String, dynamic> _$$DatumImplToJson(_$DatumImpl instance) =>
@@ -59,7 +56,7 @@ Map<String, dynamic> _$$DatumImplToJson(_$DatumImpl instance) =>
       'url': instance.url,
       'body': instance.body,
       'tags': instance.tags,
-      'lang': _$LangEnumMap[instance.lang],
+      'lang': _$LangEnumMap[instance.lang]!,
       'upvotes': instance.upvotes,
       'downvotes': instance.downvotes,
       'categories': instance.categories,
@@ -73,20 +70,20 @@ const _$LangEnumMap = {
 
 _$SourceInfoImpl _$$SourceInfoImplFromJson(Map<String, dynamic> json) =>
     _$SourceInfoImpl(
-      name: json['name'] as String?,
-      img: json['img'] as String?,
-      lang: $enumDecodeNullable(_$LangEnumMap, json['lang']),
+      name: json['name'] as String,
+      img: json['img'] as String,
+      lang: $enumDecode(_$LangEnumMap, json['lang']),
     );
 
 Map<String, dynamic> _$$SourceInfoImplToJson(_$SourceInfoImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'img': instance.img,
-      'lang': _$LangEnumMap[instance.lang],
+      'lang': _$LangEnumMap[instance.lang]!,
     };
 
 _$RateLimitImpl _$$RateLimitImplFromJson(Map<String, dynamic> json) =>
-    const _$RateLimitImpl();
+    _$RateLimitImpl();
 
 Map<String, dynamic> _$$RateLimitImplToJson(_$RateLimitImpl instance) =>
     <String, dynamic>{};

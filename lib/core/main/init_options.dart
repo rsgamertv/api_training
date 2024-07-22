@@ -22,5 +22,4 @@ void initTalker() {
 }
 void initSingleTons(){
   GetIt.I.registerLazySingleton<AbstractCurrenciesRepo>(() => CurrenciesRepo());
-  GetIt.I.registerLazySingleton<Currencies>(() => const Currencies());
 }

@@ -1,4 +1,3 @@
-import 'package:api_training/core/main/globals.dart';
 import 'package:api_training/core/style/colors.dart';
 import 'package:api_training/main/bloc/home_bloc/home_bloc.dart';
 import 'package:api_training/main/widgets/cnl_bottom_sheet.dart';
@@ -12,27 +11,20 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sizer/sizer.dart';
 
 @RoutePage()
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    final homeBloc = HomeBloc();
-    homeBloc.add(HomeEvent());
-  }
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         if(state is HomeLoading){
-          return const LoadingWidget();
+          return Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: theme.primaryColor,
+            child: const LoadingWidget());
         }
         if(state is HomeLoaded){
         return Scaffold(
@@ -47,14 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
               height: double.infinity,
               padding: EdgeInsets.only(left: 1.w, right: 1.w),
               child: ListView.builder(
-                itemCount: currencies.data!.length,
+                itemCount: state.coinsList!.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final currentcurrencies = currencies.data![index];
+                  final currentcurrencies = state.coinsList![index];
                   return SizedBox(
                     height: 30.h,
                     width: double.infinity,
                     child: CachedNetworkImage(
-                      imageUrl: currentcurrencies.imageurl!,
+                      imageUrl: currentcurrencies.imageurl,
                       placeholder: (context, url) {
                         return const LoadingWidget();
                       },
@@ -104,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         height: 5.h,
                                         width: 51.w,
                                         child: Text(
-                                          currentcurrencies.title!,
+                                          currentcurrencies.title,
                                           softWrap: true,
                                           overflow: TextOverflow.fade,
                                           maxLines: 10,
@@ -120,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: 51.w,
                                         child: SingleChildScrollView(
                                             child: Text(
-                                          currentcurrencies.body!,
+                                          currentcurrencies.body,
                                           style: theme.textTheme.displaySmall,
                                         )),
                                       )
@@ -146,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return const FailureWidget();
             }
             else{
-              return Container();
+              return Container(color: black,);
             }
       },
     );
