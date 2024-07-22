@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeBloc homeBloc = HomeBloc();
     final theme = Theme.of(context);
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
@@ -34,104 +35,110 @@ class HomeScreen extends StatelessWidget {
                 style: theme.textTheme.displayLarge,
               ),
             ),
-            body: Container(
-              width: double.infinity,
-              height: double.infinity,
-              padding: EdgeInsets.only(left: 1.w, right: 1.w),
-              child: ListView.builder(
-                itemCount: state.coinsList!.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final currentcurrencies = state.coinsList![index];
-                  return SizedBox(
-                    height: 30.h,
-                    width: double.infinity,
-                    child: CachedNetworkImage(
-                      imageUrl: currentcurrencies.imageurl,
-                      placeholder: (context, url) {
-                        return const LoadingWidget();
-                      },
-                      imageBuilder: (context, imageProvider) {
-                        return GestureDetector(
-                          onTap: () {
-                            showBarModalBottomSheet(
-                                useRootNavigator: true,
-                                context: context,
-                                builder: (context) => CnlBottomSheet(
-                                      currentCurrencies: currentcurrencies,
-                                    ));
-                          },
-                          child: Card(
-                            child: Container(
-                              width: double.infinity,
-                              height: double.infinity,
-                              padding: EdgeInsets.only(left: 3.w),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 25.h,
-                                    width: 38.w,
-                                    decoration: BoxDecoration(
-                                        color: white,
-                                        image: DecorationImage(
-                                            image: imageProvider,
-                                            fit: BoxFit.cover),
-                                        borderRadius:
-                                            BorderRadius.circular(60)),
-                                  ),
-                                  SizedBox(
-                                    width: 2.w,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        height: 3.h,
-                                      ),
-                                      Text(
-                                        'Title',
-                                        style: theme.textTheme.titleSmall,
-                                      ),
-                                      SizedBox(
-                                        height: 5.h,
-                                        width: 51.w,
-                                        child: Text(
-                                          currentcurrencies.title,
-                                          softWrap: true,
-                                          overflow: TextOverflow.fade,
-                                          maxLines: 10,
+            body: RefreshIndicator(
+              color: theme.colorScheme.onPrimary,
+              onRefresh: () async {
+                homeBloc.add(HomeEvent());
+              },
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                padding: EdgeInsets.only(left: 1.w, right: 1.w),
+                child: ListView.builder(
+                  itemCount: state.coinsList!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final currentcurrencies = state.coinsList![index];
+                    return SizedBox(
+                      height: 30.h,
+                      width: double.infinity,
+                      child: CachedNetworkImage(
+                        imageUrl: currentcurrencies.imageurl,
+                        placeholder: (context, url) {
+                          return const LoadingWidget();
+                        },
+                        imageBuilder: (context, imageProvider) {
+                          return GestureDetector(
+                            onTap: () {
+                              showBarModalBottomSheet(
+                                  useRootNavigator: true,
+                                  context: context,
+                                  builder: (context) => CnlBottomSheet(
+                                        currentCurrencies: currentcurrencies,
+                                      ));
+                            },
+                            child: Card(
+                              child: Container(
+                                width: double.infinity,
+                                height: double.infinity,
+                                padding: EdgeInsets.only(left: 3.w),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: 25.h,
+                                      width: 38.w,
+                                      decoration: BoxDecoration(
+                                          color: white,
+                                          image: DecorationImage(
+                                              image: imageProvider,
+                                              fit: BoxFit.cover),
+                                          borderRadius:
+                                              BorderRadius.circular(60)),
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        Text(
+                                          'Title',
                                           style: theme.textTheme.titleSmall,
                                         ),
-                                      ),
-                                      Text(
-                                        'Desc',
-                                        style: theme.textTheme.titleSmall,
-                                      ),
-                                      SizedBox(
-                                        height: 14.h,
-                                        width: 51.w,
-                                        child: SingleChildScrollView(
-                                            child: Text(
-                                          currentcurrencies.body,
-                                          style: theme.textTheme.displaySmall,
-                                        )),
-                                      )
-                                    ],
-                                  ),
-                                ],
+                                        SizedBox(
+                                          height: 5.h,
+                                          width: 51.w,
+                                          child: Text(
+                                            currentcurrencies.title,
+                                            softWrap: true,
+                                            overflow: TextOverflow.fade,
+                                            maxLines: 10,
+                                            style: theme.textTheme.titleSmall,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Desc',
+                                          style: theme.textTheme.titleSmall,
+                                        ),
+                                        SizedBox(
+                                          height: 14.h,
+                                          width: 51.w,
+                                          child: SingleChildScrollView(
+                                              child: Text(
+                                            currentcurrencies.body,
+                                            style: theme.textTheme.displaySmall,
+                                          )),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
-                      errorWidget: (context, url, error) {
-                        return const Center(
-                          child: Text('error'),
-                        );
-                      },
-                    ),
-                  );
-                },
+                          );
+                        },
+                        errorWidget: (context, url, error) {
+                          return const Center(
+                            child: Text('error'),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
             ));}
             if(state is HomeFailure){
