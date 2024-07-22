@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final HomeBloc homeBloc = HomeBloc();
     final theme = Theme.of(context);
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
@@ -38,7 +37,7 @@ class HomeScreen extends StatelessWidget {
             body: RefreshIndicator(
               color: theme.colorScheme.onPrimary,
               onRefresh: () async {
-                homeBloc.add(HomeEvent());
+                BlocProvider.of<HomeBloc>(context).add(HomeEvent());
               },
               child: Container(
                 width: double.infinity,
