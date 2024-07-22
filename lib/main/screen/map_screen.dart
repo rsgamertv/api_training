@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-
 @RoutePage()
-class MapScreen extends StatelessWidget {
+class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
 
+  @override
+  State<MapScreen> createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -13,14 +16,7 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Map',style: theme.textTheme.displayLarge,),
       ),
-      body: Container(
-        padding: EdgeInsets.only(left: 5.w,right: 5.w,top: 20.h),
-        child: const Column(
-          children: [
-            
-          ],
-        ),
-      ),
+      body: const Scaffold()
     );
   }
 }
