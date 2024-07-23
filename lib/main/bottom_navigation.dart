@@ -40,9 +40,9 @@ class BottomNavigationScreen extends StatelessWidget {
                         text: ' Home',
                         textSize: 25),
                     GButton(
-                        icon: CupertinoIcons.map,
+                        icon: CupertinoIcons.chat_bubble,
                         iconSize: 30,
-                        text: ' Map',
+                        text: ' Chats',
                         textSize: 25),
                     GButton(
                         icon: CupertinoIcons.person_crop_circle,
